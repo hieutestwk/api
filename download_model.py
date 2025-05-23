@@ -9,12 +9,13 @@ def download_file(file_id, output_path):
     print(f"Đang tải file từ {url} về {output_path} ...")
     try:
         import gdown
-        gdown.download(url, output_path, quiet=False)
     except ImportError:
         print("gdown chưa được cài đặt, đang cài đặt...")
         subprocess.check_call(["pip", "install", "--upgrade", "gdown"])
         import gdown
-        gdown.download(url, output_path, quiet=False)
+
+    # Sử dụng fuzzy=True để cho phép gdown xử lý xác nhận tải
+    gdown.download(url, output_path, quiet=False, fuzzy=True, use_cookies=False)
 
 if __name__ == "__main__":
     os.makedirs("models", exist_ok=True)
