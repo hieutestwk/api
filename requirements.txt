@@ -3,3 +3,4 @@ sounddevice==0.4.6
 vosk==0.3.45
 gpt4all==2.2.1
 gdown==4.7.1
+gunicorn
